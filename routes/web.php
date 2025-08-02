@@ -8,9 +8,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/sign-in', function () {
-    return view('auth.sign-in');
-});
 
 
 
@@ -18,5 +15,6 @@ Route::get('/sign-in', function () {
 
 // Dashboard Routes
 Route::get('/dashboard', [UserDashboardController::class, 'index'])->name('dashboard.index');
-Route::get('/sign-up', [AuthController::class, 'signUP']);
+Route::get('/sign-up', [AuthController::class, 'signUp']);
+Route::post('/sign-up', [AuthController::class, 'store'])->name('user.sign-up');
 Route::get('/sign-in', [AuthController::class, 'signIn']);

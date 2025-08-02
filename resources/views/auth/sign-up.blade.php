@@ -67,34 +67,29 @@ License: For each use you must have a valid license purchased only from above li
                   <div class="auth-form-wrapper px-4 py-5">
                     <a href="#" class="nobleui-logo d-block mb-2">Noble<span>UI</span></a>
                     <h5 class="text-secondary fw-normal mb-4">Create a free account.</h5>
-                    <form class="forms-sample">
+
+                    <form class="forms-sample" method="POST" action="">
+                        @csrf
+                        <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" name="name" class="form-control" id="exampleInputUsername1" placeholder="Name">
+                      </div>
                       <div class="mb-3">
                         <label for="exampleInputUsername1" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="exampleInputUsername1" autocomplete="Username" placeholder="Username">
+                        <input type="text" name="username" class="form-control" id="exampleInputUsername1" autocomplete="Username" placeholder="Username">
                       </div>
                       <div class="mb-3">
                         <label for="userEmail" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="userEmail" placeholder="Email">
+                        <input type="email" name="email" class="form-control" id="userEmail" placeholder="Email">
                       </div>
                       <div class="mb-3">
                         <label for="userPassword" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="userPassword" autocomplete="current-password" placeholder="Password">
+                        <input type="password" name="password" class="form-control" id="userPassword" autocomplete="current-password" placeholder="Password">
                       </div>
-                      <div class="form-check mb-3">
-                        <input type="checkbox" class="form-check-input" id="authCheck">
-                        <label class="form-check-label" for="authCheck">
-                          Remember me
-                        </label>
-                      </div>
-                      <div>
-                        <a href="../../dashboard.html" class="btn btn-primary text-white me-2 mb-2 mb-md-0">Sign up</a>
-                        <button type="button" class="btn btn-outline-primary btn-icon-text mb-2 mb-md-0">
-                          <i class="btn-icon-prepend" data-feather="github"></i>
-                          Sign up with Github
-                        </button>
-                      </div>
-                      <a href="login.html" class="d-block mt-3 text-secondary">Already a user? Sign in</a>
-                    </form>
+
+                      <button type="submit" class="btn btn-primary float-end">Sign-up</button>
+
+                      </form>
                   </div>
                 </div>
               </div>

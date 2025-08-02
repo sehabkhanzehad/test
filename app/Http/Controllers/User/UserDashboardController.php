@@ -9,7 +9,6 @@ class UserDashboardController extends Controller
 {
     public function index()
     {
-        // Logic for displaying the user dashboard
         return view('user.dashboard.index');
     }
 }

@@ -71,7 +71,8 @@ License: For each use you must have a valid license purchased only from above li
                                         <a href="#" class="nobleui-logo d-block mb-2">Noble<span>UI</span></a>
                                         <h5 class="text-secondary fw-normal mb-4">Welcome back! Log in to your account.
                                         </h5>
-                                        <form class="forms-sample">
+
+                                        <form class="forms-sample" method="POST" >
                                             <div class="mb-3">
                                                 <label for="userEmail" class="form-label">Email address</label>
                                                 <input type="email" class="form-control" id="userEmail"
@@ -100,6 +101,7 @@ License: For each use you must have a valid license purchased only from above li
                                             <a href="register.html" class="d-block mt-3 text-secondary">Not a user? Sign
                                                 up</a>
                                         </form>
+
                                     </div>
                                 </div>
                             </div>
