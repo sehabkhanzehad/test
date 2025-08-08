@@ -72,33 +72,35 @@ License: For each use you must have a valid license purchased only from above li
                                         <h5 class="text-secondary fw-normal mb-4">Welcome back! Log in to your account.
                                         </h5>
 
-                                        <form class="forms-sample" method="POST" >
+                                        @if ($errors->has('login'))
+                                            <div class="alert alert-danger">
+                                                 {{$errors->first('login')}} </div>
+
+                                        @endif
+
+                                        <form class="forms-sample" method="POST" action="{{ route('user.sign-In') }}" >
+                                            @csrf
                                             <div class="mb-3">
                                                 <label for="userEmail" class="form-label">Email address</label>
-                                                <input type="email" class="form-control" id="userEmail"
+                                                <input type="email" name="email" class="form-control" id="userEmail"
                                                     placeholder="Email">
+                                                @error('email')
+                                                    <p class="text-danger"> {{$message}} </p>
+                                                @enderror
                                             </div>
                                             <div class="mb-3">
                                                 <label for="userPassword" class="form-label">Password</label>
-                                                <input type="password" class="form-control" id="userPassword"
+                                                <input type="password" name="password" class="form-control" id="userPassword"
                                                     autocomplete="current-password" placeholder="Password">
+                                                @error('password')
+                                                    <p class="text-danger"> {{$message}} </p>
+                                                @enderror
                                             </div>
-                                            <div class="form-check mb-3">
-                                                <input type="checkbox" class="form-check-input" id="authCheck">
-                                                <label class="form-check-label" for="authCheck">
-                                                    Remember me
-                                                </label>
-                                            </div>
+
                                             <div>
-                                                <a href="../../dashboard.html"
-                                                    class="btn btn-primary me-2 mb-2 mb-md-0 text-white">Login</a>
-                                                <button type="button"
-                                                    class="btn btn-outline-primary btn-icon-text mb-2 mb-md-0">
-                                                    <i class="btn-icon-prepend" data-feather="github"></i>
-                                                    Login with Github
-                                                </button>
+                                                <button class="btn btn-primary me-2 mb-2 mb-md-0 text-white">Login</button>
                                             </div>
-                                            <a href="register.html" class="d-block mt-3 text-secondary">Not a user? Sign
+                                            <a href="{{ route('user.signUp') }}" class="d-block mt-3 text-secondary">Not a user? Sign
                                                 up</a>
                                         </form>
 
