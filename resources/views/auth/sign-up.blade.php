@@ -115,7 +115,7 @@ License: For each use you must have a valid license purchased only from above li
                                                 @enderror
                                             </div>
 
-                                            <a href="{{ route('user.signIn') }}" class="d-block mt-3 text-secondary">
+                                            <a href="{{ route('login') }}" class="d-block mt-3 text-secondary">
                                                 Already have an account? Sign-in</a>
 
                                             <button type="submit" class="btn btn-primary float-end">Sign-up</button>

@@ -73,17 +73,19 @@ License: For each use you must have a valid license purchased only from above li
                                         </h5>
 
                                         @if ($errors->has('login'))
-                                            <div class="alert alert-danger">
-                                                 {{$errors->first('login')}} </div>
+                                            <div class="alert alert-danger alert-dimissible fade-show" role="alert">
+                                                 {{$errors->first('login')}}
+                                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>
 
                                         @endif
 
-                                        <form class="forms-sample" method="POST" action="{{ route('user.sign-In') }}" >
+                                        <form class="forms-sample" method="POST" action="{{ route('user.login') }}" >
                                             @csrf
                                             <div class="mb-3">
                                                 <label for="userEmail" class="form-label">Email address</label>
                                                 <input type="email" name="email" class="form-control" id="userEmail"
-                                                    placeholder="Email">
+                                                    placeholder="Email" value="{{old('email')}}">
                                                 @error('email')
                                                     <p class="text-danger"> {{$message}} </p>
                                                 @enderror

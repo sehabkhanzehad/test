@@ -15,8 +15,14 @@ Route::get('/', function () {
 
 
 // Dashboard Routes
-Route::get('/dashboard', [UserDashboardController::class, 'index'])->name('dashboard.index');
+Route::middleware(['auth'])->group(function(){
+    Route::get('/dashboard', [UserDashboardController::class, 'index'])->name('dashboard.index');
+    Route::post('/logout', [LoginController::class, 'logout'])->name('user.logout');
+});
+
+
 Route::get('/sign-up', [AuthController::class, 'signUp'])->name('user.signUp');
 Route::post('/sign-up', [AuthController::class, 'store'])->name('user.sign-up');
-Route::get('/sign-in', [AuthController::class, 'signIn'])->name('user.signIn');
-Route::post('/sign-in', [LoginController::class, 'authenticate'])->name('user.sign-In');
+Route::get('/sign-in', [AuthController::class, 'signIn'])->name('login');
+Route::post('/sign-in', [LoginController::class, 'authenticate'])->name('user.login');
+
